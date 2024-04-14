@@ -59,7 +59,7 @@ def encontrar_a_chave(texto_cifrado):
 
     resultados = []
 
-    for tamanho_chave in range(1, 11):  # Itera sobre chaves de 1 a 20 caracteres
+    for tamanho_chave in range(1, 11):  # Itera sobre chaves de 1 a 10 caracteres
         textoselec = texto_cifrado[::tamanho_chave]  # Gera as chaves de acordo com o tamanho
         frequencia_textos[tamanho_chave] = calcular_frequencia_letras(textoselec)
         similaridades = {}
@@ -135,7 +135,7 @@ chave_descoberta = encontrar_a_chave(texto_cifrado)
 # Descriptografa o texto cifrado usando a chave descoberta
 texto_decifrado = decrypt_vigenere(texto_cifrado, chave_descoberta)
 
-# Salvar o texto descifrado em um arquivo na pasta output
+# Salvar o texto decifrado em um arquivo na pasta output
 nome_arquivo_saida = nome_arquivo.replace(".txt", "_out.txt")
 with open("output/" + nome_arquivo_saida, 'w') as arquivo_saida:
     arquivo_saida.write(texto_decifrado)
